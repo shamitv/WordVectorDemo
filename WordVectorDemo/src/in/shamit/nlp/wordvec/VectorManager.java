@@ -155,14 +155,11 @@ public class VectorManager {
 	}	
 
 	
-	
+	static long lCount=0;
 	static void loadVectors(String vectorFilepath) throws IOException{
 		File vecFile=new File(vectorFilepath);
 		log.info("Loading vectors from "+vectorFilepath);
-		List<String> lines = Files.readAllLines(vecFile.toPath());
-		Set<String> vocab=null;
-		long lCount=0;
-		for(String l:lines){
+		Files.lines(vecFile.toPath()).forEach(l->{
 			String cols[]=l.split("\\s");
 			if(cols.length>1){
 				String word=cols[0];
@@ -177,8 +174,9 @@ public class VectorManager {
 			}
 			if(lCount%100000==0){
 				log.info(lCount + " lines processed ");
-			}
-		}
+			}			
+		});
+		Set<String> vocab=null;
 		vocab=vectors.keySet();
 		log.info(vocab.size() + " words in vocab");		
 	}
