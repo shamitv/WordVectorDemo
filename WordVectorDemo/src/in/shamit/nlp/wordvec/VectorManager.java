@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import in.shamit.nlp.wordvec.demo.Config;
 import in.shamit.nlp.wordvec.demo.services.vo.DistResponse;
 import in.shamit.nlp.wordvec.demo.services.vo.Word;
 
@@ -232,17 +233,9 @@ public class VectorManager {
 		Thread t=new Thread(new Runnable() {
 			@Override
 			public void run() {
-				System.out.println("Loading word vectors.");
-
-				String fileName="glove.840B.300d.txt";
-				File winBaseDir=new File("K:/nlp/word2vec/glove/");
-				
-				
-				File vecFile=new File(winBaseDir,fileName);
-				if(!winBaseDir.exists()){
-					winBaseDir=new File("/home/shamtalf/vector/");
-					vecFile=new File(winBaseDir,fileName);
-				}
+				String fileName=Config.VECTOR_FILE_SEC_EDGAR;
+				File vecFile=new File(fileName);
+				System.out.println("Loading word vectors from :: "+vecFile.getAbsolutePath());
 				try {
 					loadVectors(vecFile.getAbsolutePath());
 				} catch (IOException e) {
