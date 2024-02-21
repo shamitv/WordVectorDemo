@@ -1,8 +1,5 @@
 package in.shamit.nlp.wordvec.demo.services.vo;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement(name="Word")
 public class Word {
 	private String word;
 	private float[]vector;

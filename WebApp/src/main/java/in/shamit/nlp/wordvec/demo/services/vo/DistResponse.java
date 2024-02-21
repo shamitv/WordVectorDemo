@@ -1,8 +1,5 @@
 package in.shamit.nlp.wordvec.demo.services.vo;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement(name="DistResponse")
 public class DistResponse {
 	private float distance;
 	private Word word;
