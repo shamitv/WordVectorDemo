@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Word Vector Demo</title>
+<link rel="stylesheet" href="css/demo.css">
+<!-- <link rel="stylesheet" href="./css/bootstrap.min.css">-->
+<script src="js/handlebars.js"></script>
+<script src="js/jquery-3.2.0.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/d3.min.js"></script>
+<script src="js/typeahead.bundle.0.11.1.js"></script>
+<script src="js/lookup.js"></script>
+<script src="js/demo.js"></script>
+<script src="js/tsne.js"></script>
+<script src="js/plot_words.js"></script>
+</head>
+<body>
+	Word Vectors -- Mathematical representation of Words
+	<div class="demo" id="wordlookup">
+		<input class="typeahead" type="text" id="wordlookupInput"
+			placeholder="Words">
+		<button type="button" id="wordlookupBtn">Nearest Neighbours</button>
+		<button type="button" id="addPlotBtn">Add to Plot</button>
+	</div>
+
+	
+	<div id="tsneInput">
+	
+	<table>
+	<col width="290">
+	<col width="130">
+	<col width="700">
+	<tr>
+	<td valign="top">
+		<div id="lookupRespTable" class="left-div"></div>
+	</td>
+	<td valign="top">
+		<div class="container">
+			<hr>
+			<div class="row">
+				<div class="col-sm-6">
+					<b>Words:</b><br>
+					<textarea id="inlabels" style="width: 100%; height: 250px;"></textarea>
+				</div>
+			</div>
+		</div>
+	
+	</td>
+	<td valign="top">
+		<div class="container">
+			<hr>
+			<b>Dimensions:</b><br>
+			<textarea id="incsv" style="width: 100%; height: 250px;"></textarea>
+
+		</div>	
+	</td>
+	<tr>
+	</table>
+
+
+<div class="container">
+
+
+<button type="button" id="inbut" class="btn btn-primary" style="width:200px; height:50px;">Run t-SNE!</button>
+<button type="button" id="stopbut" class="btn btn-danger" style="width:200px; height:50px;">Stop</button>
+
+<br>
+
+<div id="cost" style="text-align:left; font-family: Impact;"></div>
+<div id="embed"></div>
+
+
+</div>
+	<div id="embed"></div>
+	</div>
+		
+		
+		
+		Question :
+		
+	<table>
+	<tr>
+	<td>
+	<div class="demo" id="wordPuzzle1">
+
+		<input class="typeahead" type="text" id="puzzleInput1"
+			placeholder="Word 1">
+			Is to
+	</div>
+	
+	</td>
+	<td>
+	
+	<div class="demo" id="wordPuzzle2">
+			
+		<input class="typeahead" type="text" id="puzzleInput2"
+			placeholder="Word 2">
+	</div>
+	
+	
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<div class="demo" id="wordPuzzle3">
+			
+		<input class="typeahead" type="text" id="puzzleInput3"
+			placeholder="Word 3">
+	</div>			
+	Is to what ?
+	
+	</td>
+	<td>
+		Answer :	
+		<textarea id="puzzleAnswer" style="width: 200px; height: 80px;"></textarea>	
+		<button id="puzzleSolvBtn">Solve</button>
+	</td>
+	</tr>
+	<tr>
+	<td></td>
+	<td></td>
+	</tr>
+	
+	</table>	
+
+			
+
+
+</body>
+</html>
