@@ -5,9 +5,9 @@ $(document).ready(function() {
 	  var wordSuggestions = new Bloodhound({
 		    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
 		    queryTokenizer: Bloodhound.tokenizers.whitespace,
-		    prefetch: './services/rest/defaultWords',
+		    prefetch: './wordLookupService/defaultWords',
 		    remote: {
-		      url: './services/rest/lookup?sead=%QUERY',
+		      url: './wordLookupService/lookup?sead=%QUERY',
 		      wildcard: '%QUERY'
 		    }
 		  });

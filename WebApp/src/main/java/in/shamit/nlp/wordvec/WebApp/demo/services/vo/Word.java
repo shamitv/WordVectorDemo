@@ -1,4 +1,4 @@
-package in.shamit.nlp.wordvec.demo.services.vo;
+package in.shamit.nlp.wordvec.WebApp.demo.services.vo;
 
 public class Word {
 	private String word;

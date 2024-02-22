@@ -10,20 +10,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import in.shamit.nlp.wordvec.demo.Config;
-import in.shamit.nlp.wordvec.demo.services.vo.DistResponse;
-import in.shamit.nlp.wordvec.demo.services.vo.Word;
+import in.shamit.nlp.wordvec.WebApp.demo.Config;
+import in.shamit.nlp.wordvec.WebApp.demo.services.vo.DistResponse;
+import in.shamit.nlp.wordvec.WebApp.demo.services.vo.Word;
 
 public class VectorManager {
 	
 
 	static Logger log = Logger.getLogger("main");
-	static Map<String, MathVector> vectors=new HashMap<>();
+	static Map<String, MathVector> vectors=new ConcurrentHashMap<>();
 
 	static File dataDir=null;
 	static File distFile=null;
@@ -159,9 +161,9 @@ public class VectorManager {
 	static void loadVectors(String vectorFilepath) throws IOException{
 		File vecFile=new File(vectorFilepath);
 		log.info("Loading vectors from "+vectorFilepath);
-		Files.lines(vecFile.toPath()).forEach(l->{
+		Files.lines(vecFile.toPath()).parallel().forEach(l->{
 			String cols[]=l.split("\\s");
-			if(cols.length>1){
+			if(cols.length>2){
 				String word=cols[0];
 				if(isValidWord(word)){
 					lCount++;
@@ -231,7 +233,7 @@ public class VectorManager {
 		Thread t=new Thread(new Runnable() {
 			@Override
 			public void run() {
-				String fileName=Config.VECTOR_FILE_SEC_EDGAR;
+				String fileName=Config.VECTOR_FILE_GLOVE_42B;
 				File vecFile=new File(fileName);
 				System.out.println("Loading word vectors from :: "+vecFile.getAbsolutePath());
 				try {

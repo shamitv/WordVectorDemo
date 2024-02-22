@@ -5,7 +5,7 @@ $(document).ready(function() {
 	$( "#wordlookupBtn" ).click(function() {
 		  var word = $("#wordlookupInput").val();
 		  console.log("Fething neighbours for "+word);
-		  var url="./services/rest/nearWords?word="+word;
+		  var url="./wordLookupService/nearWords?word="+word;
 		  $.ajax({
 			  dataType: "json",
 			  url: url,
@@ -58,7 +58,7 @@ $(document).ready(function() {
 		  w2=$("#puzzleInput2").val();
 		  w3=$("#puzzleInput3").val();
 		  if(w1.trim()!=="" && w2.trim()!=="" && w3.trim()!==""){
-			  var url="./services/rest/solvePuzzle?word1="+w1.trim()+"&word2="+w2.trim()+"&word3="+w3.trim();
+			  var url="./wordLookupService/solvePuzzle?word1="+w1.trim()+"&word2="+w2.trim()+"&word3="+w3.trim();
 			  $.ajax({
 				  dataType: "json",
 				  url: url,

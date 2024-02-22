@@ -1,6 +1,6 @@
 package in.shamit.nlp.wordvec;
 
-import in.shamit.nlp.wordvec.demo.services.vo.DistResponse;
+import in.shamit.nlp.wordvec.WebApp.demo.services.vo.DistResponse;
 
 public class EquationSolver {
 
